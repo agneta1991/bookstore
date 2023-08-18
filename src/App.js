@@ -1,29 +1,19 @@
-import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import NavigationBar from './components/navigation';
-import BookState from './components/bookstate';
-import BookList from './components/booklist';
-import BookForm from './components/newbook';
+import Navigation from './components/navbar';
+import Home from './pages/books';
+import Categories from './pages/categories';
+import './App.css';
 
 function App() {
-  const [books, setBooks] = useState([]);
-
-  const addBook = (newBook) => {
-    setBooks([...books, newBook]);
-  };
-
   return (
     <>
-      <NavigationBar />
+      <Navigation />
       <div>
         <Routes>
-          <Route path="/books" element={<BookState addBook={addBook} />} />
-        </Routes>
-        <Routes>
-          <Route path="/categories" element={<BookList />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/categories" element={<Categories />} />
         </Routes>
       </div>
-      <BookForm onAddBook={addBook} />
     </>
   );
 }

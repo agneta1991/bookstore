@@ -4,16 +4,16 @@ import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import BookState from './components/bookstate';
-import BookList from './components/booklist';
+import Home from './pages/books';
+import Categories from './pages/categories';
 
 const router = createBrowserRouter([
   {
     path: '*',
     element: <App />,
     children: [
-      { path: 'books', element: <BookState /> },
-      { path: 'categories', element: <BookList /> },
+      { path: 'books', element: <Home /> },
+      { path: 'categories', element: <Categories /> },
     ],
   },
 ]);

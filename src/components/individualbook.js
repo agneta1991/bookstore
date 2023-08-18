@@ -1,19 +1,28 @@
 import PropTypes from 'prop-types';
 
-const IndividualBook = ({ selectedGenre, title }) => (
-  <div className="book">
-    <h3>{title}</h3>
-    <p>
-      Genre:
-      {selectedGenre}
-    </p>
-    <button type="submit">Delete</button>
-  </div>
-);
+const IndividualBook = ({ book, onDelete }) => {
+  const handleDelete = () => {
+    onDelete(book.id);
+  };
+
+  return (
+    <div className="individualBookDiv">
+      <h3>{book.title}</h3>
+      <p>{book.author}</p>
+      <button type="button" onClick={handleDelete}>
+        Delete
+      </button>
+    </div>
+  );
+};
 
 IndividualBook.propTypes = {
-  selectedGenre: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  book: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+  }).isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default IndividualBook;
