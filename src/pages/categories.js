@@ -2,7 +2,7 @@ import React from 'react';
 
 const Categories = () => (
   <div className="categoriesDiv">
-    <h3>Categories</h3>
+    <h3>Under construction</h3>
   </div>
 );
 
