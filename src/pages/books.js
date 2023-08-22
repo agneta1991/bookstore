@@ -1,35 +1,43 @@
-import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
-import BookList from '../components/booklist';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import BookForm from '../components/theform';
+import { remove } from '../redux/books/booksSlice';
 
 const Home = () => {
-  const [books, setBooks] = useState([
-    {
-      id: uuidv4(),
-      title: 'Book 1',
-      author: 'Author 1',
-    },
-    {
-      id: uuidv4(),
-      title: 'Book 2',
-      author: 'Author 2',
-    },
-  ]);
+  const books = useSelector((store) => store.books);
+  const dispatch = useDispatch();
 
   const handleDelete = (id) => {
-    setBooks((prevBooks) => prevBooks.filter((book) => book.id !== id));
-  };
-
-  const handleSubmit = (newBook) => {
-    setBooks((prevBooks) => [...prevBooks, newBook]);
+    dispatch(remove({ id }));
   };
 
   return (
-    <div className="homePageDiv">
-      <BookList books={books} onDelete={handleDelete} />
-      <BookForm onSubmit={handleSubmit} />
-    </div>
+    <>
+      <section className="homePageDiv">
+        <div className="bookListDiv">
+          <h1>Books</h1>
+          <ul>
+            {books.map((book) => (
+              <li key={book.itemId} className="individualBookLiItem">
+                <div className="bookInfo">
+                  <h2>{book.title}</h2>
+                  <h3>{book.author}</h3>
+                  <h4>{book.category}</h4>
+                </div>
+                <button
+                  className="delete"
+                  type="button"
+                  onClick={() => handleDelete(book.itemId)}
+                >
+                  Delete
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+      <BookForm />
+    </>
   );
 };
 

@@ -41,6 +41,14 @@ body {
   border: 1px solid green;
 }
 
-.individualBookDiv {
+.individualBookLiItem {
+  display: flex;
   border: 1px solid blue;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete {
+  width: 5rem;
+  height: 2rem;
 }

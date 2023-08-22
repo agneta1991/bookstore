@@ -1,13 +1,27 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
+import { add } from '../redux/books/booksSlice';
 
-const BookForm = ({ onSubmit }) => {
+const BookForm = () => {
+  const dispatch = useDispatch();
+
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit({ title, author });
+    const newId = uuidv4();
+
+    dispatch(
+      add({
+        itemId: newId,
+        title,
+        author,
+        category: 'Under Construction',
+      }),
+    );
+
     setTitle('');
     setAuthor('');
   };
@@ -30,10 +44,6 @@ const BookForm = ({ onSubmit }) => {
       <button type="submit">ADD BOOK</button>
     </form>
   );
-};
-
-BookForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
 };
 
 export default BookForm;
