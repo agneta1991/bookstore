@@ -7,8 +7,8 @@ export const booksSlice = createSlice({
   },
   reducers: {
     add: (state, action) => {
-      const { title } = action.payload;
-      state.value.push({ title });
+      const { title, author } = action.payload;
+      state.value.push({ title, author });
     },
     remove: (state, action) => {
       const { id } = action.payload;
