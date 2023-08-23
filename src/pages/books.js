@@ -1,28 +1,19 @@
-import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import BookList from '../components/booklist';
 import BookForm from '../components/theform';
+import { add, remove } from '../redux/books/booksSlice';
 
 const Home = () => {
-  const [books, setBooks] = useState([
-    {
-      id: uuidv4(),
-      title: 'Book 1',
-      author: 'Author 1',
-    },
-    {
-      id: uuidv4(),
-      title: 'Book 2',
-      author: 'Author 2',
-    },
-  ]);
+  const dispatch = useDispatch();
+  const books = useSelector((state) => state.books.value);
 
   const handleDelete = (id) => {
-    setBooks((prevBooks) => prevBooks.filter((book) => book.id !== id));
+    dispatch(remove({ id }));
   };
 
   const handleSubmit = (newBook) => {
-    setBooks((prevBooks) => [...prevBooks, newBook]);
+    dispatch(add(newBook));
   };
 
   return (
