@@ -5,13 +5,17 @@ import IndividualBook from './individualbook';
 const BookList = ({ books, onDelete }) => (
   <div className="bookListDiv">
     <h2>Books</h2>
-    <ul>
-      {books.map((book) => (
-        <li key={book.id}>
-          <IndividualBook book={book} onDelete={onDelete} />
-        </li>
-      ))}
-    </ul>
+    {Array.isArray(books) && books.length > 0 ? (
+      <ul>
+        {books.map((book) => (
+          <li key={book.id}>
+            <IndividualBook book={book} onDelete={onDelete} />
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p>Loading books...</p>
+    )}
   </div>
 );
 

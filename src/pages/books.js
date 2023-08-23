@@ -1,19 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import BookList from '../components/booklist';
 import BookForm from '../components/theform';
-import { add, remove } from '../redux/books/booksSlice';
+import {
+  addAndFetch,
+  removeAndFetch,
+  fetchBooks,
+} from '../redux/books/booksSlice';
 
 const Home = () => {
   const dispatch = useDispatch();
   const books = useSelector((state) => state.books.value);
+  const fetchedAppId = useSelector((state) => state.books.appId);
+  console.log(books, fetchedAppId);
+
+  useEffect(() => {
+    if (fetchedAppId) {
+      dispatch(fetchBooks(fetchedAppId));
+    }
+  }, [dispatch, fetchedAppId]);
 
   const handleDelete = (id) => {
-    dispatch(remove({ id }));
+    if (fetchedAppId) {
+      dispatch(removeAndFetch({ bookId: id, appId: fetchedAppId }));
+    }
   };
 
   const handleSubmit = (newBook) => {
-    dispatch(add(newBook));
+    if (fetchedAppId) {
+      dispatch(addAndFetch({ newBook, appId: fetchedAppId }));
+    }
   };
 
   return (

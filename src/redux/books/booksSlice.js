@@ -1,14 +1,50 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// const baseAppURL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/';
+const baseAppURL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/';
 const baseBooksURL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/:app_id/books';
+
+export const fetchAppId = async () => {
+  try {
+    const response = await axios.post(baseAppURL);
+    const appId = response.data;
+    console.log('id is', appId);
+    return appId;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+};
 
 export const fetchBooks = createAsyncThunk(
   'books/fetchBooks',
   async (appId) => {
     const response = await axios.get(baseBooksURL.replace(':app_id', appId));
+    console.log(response);
+    console.log(response.data);
     return response.data;
+  },
+);
+
+export const addAndFetch = createAsyncThunk(
+  'books/addAndFetch',
+  async ({ newBook, appId }) => {
+    await axios.post(baseBooksURL.replace(':app_id', appId), newBook);
+    const fetchResponse = await axios.get(
+      baseBooksURL.replace(':app_id', appId),
+    );
+    return fetchResponse.data;
+  },
+);
+
+export const removeAndFetch = createAsyncThunk(
+  'books/removeAndFetch',
+  async ({ bookId, appId }) => {
+    await axios.delete(`${baseBooksURL.replace(':app_id', appId)}/${bookId}`);
+    const fetchResponse = await axios.get(
+      baseBooksURL.replace(':app_id', appId),
+    );
+    return fetchResponse.data;
   },
 );
 
@@ -18,16 +54,7 @@ export const booksSlice = createSlice({
     value: [],
     status: 'idle',
   },
-  reducers: {
-    add: (state, action) => {
-      const { title, author } = action.payload;
-      state.value.push({ title, author });
-    },
-    remove: (state, action) => {
-      const { id } = action.payload;
-      state.value = state.value.filter((book) => book.id !== id);
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchBooks.pending, (state) => {
@@ -39,8 +66,14 @@ export const booksSlice = createSlice({
       })
       .addCase(fetchBooks.rejected, (state) => {
         state.status = 'failed';
+      })
+      .addCase(addAndFetch.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.value = action.payload;
+      })
+      .addCase(removeAndFetch.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.value = action.payload;
       });
   },
 });
-
-export const { add, remove } = booksSlice.actions;
