@@ -16,18 +16,21 @@ function BookList({ book }) {
   return (
     <div className="individualBookLiItem">
       <div>
-        <h4>{book.category}</h4>
-        <h2>{book.title}</h2>
-        <h3>{book.author}</h3>
+        <p className="category-p">{book.category}</p>
+        <p className="title-p">{book.title}</p>
+        <p className="author-p">{book.author}</p>
         <div className="buttonsDiv">
           <CommentBtn />
+          <div className="vertical-line" />
           <button className="delete" type="button" onClick={handleRemoveBook}>
             Delete
           </button>
+          <div className="vertical-line" />
           <EditBtn />
         </div>
       </div>
       <Completion />
+      <div className="vertical-line" />
       <ChapterDiv />
     </div>
   );

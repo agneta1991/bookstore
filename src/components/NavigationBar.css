@@ -34,19 +34,16 @@
 
 .logo {
     color: #0290ff;
-    font-family: Montserrat;
     font-size: 1.875rem;
 }
 
 .books-nav-bar {
-    font-family: Montserrat;
     font-size: 0.813rem;
     color: #121212;
 }
 
 .cat-nav-bar {
     opacity: 0.5;
-    font-family: Montserrat;
     font-size: 0.813rem;
     color: #121212;
 }

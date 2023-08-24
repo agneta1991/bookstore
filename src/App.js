@@ -3,6 +3,8 @@ import Navigation from './components/navbar';
 import Categories from './pages/categories';
 import './App.css';
 import './components/NavigationBar.css';
+import './components/HomePage.css';
+import './components/individualBook.css';
 import BooksPage from './pages/books';
 
 function App() {
