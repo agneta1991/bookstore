@@ -17,16 +17,14 @@ const Home = () => {
   return (
     <section className="homePageDiv">
       <div className="bookListDiv">
-        <ul>
-          <p>{status}</p>
-          {books.map((book) => (
-            <li className="individualBookLiItem" key={uuidv4()}>
-              {' '}
-              <BookList book={book} />
-            </li>
-          ))}
-          <BookForm />
-        </ul>
+        <p>{status}</p>
+        {books.map((book) => (
+          <div className="individualBookDiv" key={uuidv4()}>
+            {' '}
+            <BookList book={book} />
+          </div>
+        ))}
+        <BookForm />
       </div>
     </section>
   );

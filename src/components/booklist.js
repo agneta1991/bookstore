@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types'; // Don't forget to import PropTypes
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { removeBookAsync, appId } from '../redux/books/booksSlice';
 
@@ -11,21 +11,23 @@ function BookList({ book }) {
   };
 
   return (
-    <div className="bookInfo">
-      <h2>
-        Title:
-        {book.title}
-      </h2>
-      <h3>
-        Author:
-        {book.author}
-      </h3>
-      <h4>
-        Category:
-        {book.category}
-      </h4>
+    <div className="individualBookLiItem">
+      <div>
+        <h2>
+          Title:
+          {book.title}
+        </h2>
+        <h3>
+          Author:
+          {book.author}
+        </h3>
+        <h4>
+          Category:
+          {book.category}
+        </h4>
+      </div>
       <button className="delete" type="button" onClick={handleRemoveBook}>
-        Delete Book
+        Delete
       </button>
     </div>
   );

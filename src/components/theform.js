@@ -35,7 +35,7 @@ function BookForm() {
         value={author}
         onChange={(e) => setAuthor(e.target.value)}
       />
-      <button type="button" onClick={handleAddBook}>
+      <button className="addBook" type="button" onClick={handleAddBook}>
         Add Book
       </button>
     </form>
