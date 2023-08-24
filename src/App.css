@@ -1,52 +1,31 @@
+
 body {
   background-color: #fafafa;
-}
-
-.navigationBar {
-  display: flex;
-  justify-content: space-between;
-  width: auto;
-  height: 5.938rem;
-  margin: 0 0 2.375rem;
-  padding: 1.438rem 6.188rem 1.688rem 6.25rem;
-  background-color: white;
-}
-
-#nav-item {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  align-items: center;
-}
-
-#nav-item li:not(:last-child) {
-  margin-right: 1rem;
-}
-
-#nav-item a {
-  text-decoration: none;
-  color: black;
-}
-
-.logo {
-  color: #0290ff;
 }
 
 .homePageDiv {
   margin: 2rem;
 }
 
-.bookListDiv > ul {
-  padding: 0;
+.progressBar {
+  padding: 10px;
+  border: 1px solid magenta;
+  border-radius: 100%;
+  background-color: white;
+}
+
+.circleCompletion {
+  border: 1px solid blue;
+  border-radius: 100%;
+  padding: 7px;
+  background-color: #0290ff;
 }
 
 .individualBookLiItem {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 87.5rem;
-  width: 75rem;
+  width: 87.5%;
   height: 10.625rem;
   margin: 2.313rem 6.25rem 0;
   padding: 2rem 9.188rem 1.625rem 1.688rem;
@@ -90,9 +69,10 @@ body {
 }
 
 form {
-  margin: 2.313rem 6.25rem 0;
+  /* margin: 2.313rem 6.25rem 0; */
   padding: 2rem 9.188rem 1.625rem 1.688rem;
   width: 100%;
+  box-sizing: border-box;
 }
 
 input {
@@ -100,3 +80,4 @@ input {
   margin: 1rem;
   width: 25%;
 }
+
