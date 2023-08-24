@@ -6,7 +6,7 @@ const Completion = () => (
       <div className="progressBar" />
     </div>
     <div>
-      <p className="percentageCompletion">100%</p>
+      <p className="percentageCompletion">65%</p>
       <p className="completion-status">COMPLETED</p>
     </div>
   </div>
