@@ -42,19 +42,6 @@
     margin: 0.25rem 0 0;
 }
 
-.progressBar {
-    padding: 10px;
-    border-radius: 100%;
-    background-color: white;
-}
-
-.circleCompletion {
-    border: 1px solid blue;
-    border-radius: 100%;
-    padding: 7px;
-    background-color: #0290ff;
-}
-
 .delete {
     color: #4386bf;
     background-color: transparent;

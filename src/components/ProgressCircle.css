@@ -1,0 +1,46 @@
+.progressBar {
+    border-radius: 50%;
+    width: 4.25rem;
+    height: 4.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 5px solid;
+    border-image-slice: 1;
+    border: rgb(48, 123, 190);
+    background-color: white;
+}
+
+.circleCompletion {
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(48, 123, 190, 1) 0%, rgba(55, 156, 246, 1) 100%);
+    width: 5rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 5px solid transparent;
+}
+
+.completionDiv {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.3rem;
+}
+
+.percentageCompletion {
+    font-family: Montserrat;
+    font-size: 2rem;
+    color: #121212;
+
+}
+
+.completion-status {
+    opacity: 0.5;
+    font-family: Montserrat;
+    color: #121212;
+}
