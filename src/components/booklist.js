@@ -1,33 +1,46 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import IndividualBook from './individualbook';
+import PropTypes from 'prop-types'; // Don't forget to import PropTypes
+import { useDispatch } from 'react-redux';
+import { removeBookAsync, appId } from '../redux/books/booksSlice';
 
-const BookList = ({ books, onDelete }) => (
-  <div className="bookListDiv">
-    <h2>Books</h2>
-    {Array.isArray(books) && books.length > 0 ? (
-      <ul>
-        {books.map((book) => (
-          <li key={book.id}>
-            <IndividualBook book={book} onDelete={onDelete} />
-          </li>
-        ))}
-      </ul>
-    ) : (
-      <p>Loading books...</p>
-    )}
-  </div>
-);
+function BookList({ book }) {
+  const dispatch = useDispatch();
+
+  const handleRemoveBook = async () => {
+    await dispatch(removeBookAsync({ appId, item_id: book.item_id }));
+  };
+
+  return (
+    <div className="bookListDiv">
+      <h1>BOOKS</h1>
+      <li>
+        <p>
+          Title:
+          {book.title}
+        </p>
+        <p>
+          Author:
+          {book.author}
+        </p>
+        <p>
+          Category:
+          {book.category}
+        </p>
+        <button type="button" onClick={handleRemoveBook}>
+          Remove Book
+        </button>
+      </li>
+    </div>
+  );
+}
 
 BookList.propTypes = {
-  books: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      author: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
-  onDelete: PropTypes.func.isRequired,
+  book: PropTypes.shape({
+    item_id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default BookList;

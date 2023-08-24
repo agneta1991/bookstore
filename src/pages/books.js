@@ -1,47 +1,29 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 import BookList from '../components/booklist';
 import BookForm from '../components/theform';
-import {
-  addAndFetch,
-  removeAndFetch,
-  fetchBooks,
-  // fetchAppId,
-} from '../redux/books/booksSlice';
+import { fetchBooksAsync, appId } from '../redux/books/booksSlice';
 
 const Home = () => {
   const dispatch = useDispatch();
-  // const appId = useSelector((state) => state.books.appId);
-  const books = useSelector((state) => state.books.value);
+  const books = useSelector((state) => state.books.books);
+  const status = useSelector((state) => state.books.status);
 
   useEffect(() => {
-    dispatch(fetchBooks());
-  }, [dispatch]);
-
-  // useEffect(() => {
-  //   if (appId) {
-  //     dispatch(fetchBooks(appId));
-  //   }
-  // }, [dispatch, appId]);
-
-  const handleDelete = (id) => {
-    // if (appId) {
-    //   dispatch(removeAndFetch({ bookId: id, appId }));
-    // }
-    console.log('delete action', id, removeAndFetch);
-  };
-
-  const handleSubmit = (newBook) => {
-    // if (appId) {
-    // dispatch(addAndFetch({ newBook, appId }));
-    console.log('add book action', addAndFetch, newBook);
-    // }
-  };
+    dispatch(fetchBooksAsync(appId));
+  }, []);
 
   return (
     <div className="homePageDiv">
-      <BookList books={books} onDelete={handleDelete} />
-      <BookForm onSubmit={handleSubmit} />
+      <p>{status}</p>
+      {books.map((book) => (
+        <div key={uuidv4()}>
+          {' '}
+          <BookList book={book} />
+        </div>
+      ))}
+      <BookForm />
     </div>
   );
 };
