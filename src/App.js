@@ -6,6 +6,7 @@ import './components/NavigationBar.css';
 import './components/HomePage.css';
 import './components/individualBook.css';
 import './components/ProgressCircle.css';
+import './components/Form.css';
 import './components/Chapter.css';
 import BooksPage from './pages/books';
 
@@ -13,7 +14,7 @@ function App() {
   return (
     <>
       <Navigation />
-      <div>
+      <div className="whole-page">
         <Routes>
           <Route path="/" element={<BooksPage />} />
           <Route path="/categories" element={<Categories />} />
