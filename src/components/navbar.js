@@ -17,7 +17,7 @@ const Navigation = () => (
     </div>
     <div className="icon">
       <img
-        src="https://img.icons8.com/ios-filled/0290ff/20/user.png"
+        src="https://img.icons8.com/ios-filled/0290ff/30/user.png"
         alt="user"
       />
     </div>

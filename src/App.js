@@ -6,6 +6,7 @@ import './components/NavigationBar.css';
 import './components/HomePage.css';
 import './components/individualBook.css';
 import './components/ProgressCircle.css';
+import './components/Chapter.css';
 import BooksPage from './pages/books';
 
 function App() {

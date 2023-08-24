@@ -1,72 +1,69 @@
 .individualBookLiItem {
-    display: grid;
-    grid-template-columns: 50% 24% 2% 24%;
-    justify-content: space-between;
-    align-items: center;
-    width: 87.5%;
-    height: 12.14%;
-    margin: 2.313rem 6.25rem 0;
-    padding: 2rem 1.688rem 1.625rem 1.688rem;
-    border-radius: 4px;
-    border: solid 1px #e8e8e8;
-    background-color: #fff;
-    box-sizing: border-box;
-}
-
-.individualBookLiItem>.vertical-line {
-    height: 4.375rem;
-}
-
-.individualBookLiItem:hover {
-    background-color: #e8e8e8;
-}
-
-.category-p {
-    opacity: 0.5;
-    font-size: 0.875rem;
-    font-weight: bold;
-    margin: 0.25rem 0 0;
-}
-
-.title-p {
-    font-family: RobotoSlab;
-    font-size: 1.375rem;
-    font-weight: bold;
-    margin: 0.25rem 0 0;
-}
-
-.author-p {
-    font-family: RobotoSlab;
-    font-size: 0.875rem;
-    font-weight: 300;
-    margin: 0.25rem 0 0;
-}
-
-.delete {
-    color: #4386bf;
-    background-color: transparent;
-    border: none;
-    margin: 0.188rem 0.938rem 0.125rem 0;
-    font-family: RobotoSlab;
-    font-size: 0.875rem;
-    font-weight: 300;
-    width: 33%;
-
-}
-
-.buttonsDiv {
-    display: flex;
-    padding: 0.7rem 0 0.7rem 0;
-    width: 15.6rem;
+  display: grid;
+  grid-template-columns: 50% 24% 2% 24%;
+  justify-content: space-between;
+  align-items: center;
+  width: 87.5%;
+  height: 12.14%;
+  margin: 2.313rem 6.25rem 0;
+  padding: 2rem 1.688rem 1.625rem 1.688rem;
+  border-radius: 4px;
+  border: solid 1px #e8e8e8;
+  background-color: #fff;
+  box-sizing: border-box;
 }
 
 .vertical-line {
-    width: 1px;
-    height: 30px;
-    background-color: #e8e8e8;
-    margin: 0 10px;
+  width: 1px;
+  height: 30px;
+  background-color: #e8e8e8;
+  margin: 0 10px;
 }
 
-.chapterDiv {
-    padding: 0 3.68rem 0 3.68rem;
+.individualBookLiItem > .vertical-line {
+  height: 4.375rem;
+}
+
+.individualBookLiItem:hover {
+  background-color: #e8e8e8;
+}
+
+.category-p {
+  opacity: 0.5;
+  font-size: 0.875rem;
+  font-weight: 900;
+  text-shadow: 0.02em 0 black, -0.02em 0 black;
+  margin: 0.25rem 0 0;
+}
+
+.title-p {
+  font-family: RobotoSlab, Arial, sans-serif;
+  font-size: 1.375rem;
+  font-weight: bold;
+  margin: 0.25rem 0 0;
+}
+
+.author-p {
+  font-family: RobotoSlab, Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 300;
+  margin: 0.25rem 0 0;
+  color: #4386bf;
+}
+
+.delete {
+  color: #4386bf;
+  background-color: transparent;
+  border: none;
+  margin: 0.188rem 0.938rem 0.125rem 0;
+  font-family: RobotoSlab, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 300;
+  width: 33%;
+}
+
+.buttonsDiv {
+  display: flex;
+  padding: 0.7rem 0 0.7rem 0;
+  width: 15.6rem;
 }
