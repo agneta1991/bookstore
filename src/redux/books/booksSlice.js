@@ -13,8 +13,9 @@ export const appId = 'kLivYWfk0nGVQW8K0TO2';
 export const fetchBooksAsync = createAsyncThunk(
   'books/fetchBooks',
   async () => {
-    const response = await axios.get(`${baseBooksURL}/apps/${appId}`);
-    console.log(response.data);
+    const response = await axios.get(`${baseBooksURL}apps/${appId}/books`);
+    console.log('status is:', response);
+    console.log('fetched data is:', response.data);
     return response.data;
   },
 );
@@ -22,7 +23,7 @@ export const fetchBooksAsync = createAsyncThunk(
 export const addBookAsync = createAsyncThunk(
   'books/addBook',
   async ({ book }) => {
-    await axios.post(`${baseBooksURL}/apps/${appId}/books`, book);
+    await axios.post(`${baseBooksURL}apps/${appId}/books`, book);
     return book;
   },
 );
@@ -30,7 +31,7 @@ export const addBookAsync = createAsyncThunk(
 export const removeBookAsync = createAsyncThunk(
   'books/removeBook',
   async ({ itemId }) => {
-    await axios.delete(`${baseBooksURL}/apps/${appId}/books/${itemId}`);
+    await axios.delete(`${baseBooksURL}apps/${appId}/books/${itemId}`);
     return itemId;
   },
 );

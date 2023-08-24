@@ -15,16 +15,20 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="homePageDiv">
-      <p>{status}</p>
-      {books.map((book) => (
-        <div key={uuidv4()}>
-          {' '}
-          <BookList book={book} />
-        </div>
-      ))}
-      <BookForm />
-    </div>
+    <section className="homePageDiv">
+      <div className="bookListDiv">
+        <ul>
+          <p>{status}</p>
+          {books.map((book) => (
+            <li className="individualBookLiItem" key={uuidv4()}>
+              {' '}
+              <BookList book={book} />
+            </li>
+          ))}
+          <BookForm />
+        </ul>
+      </div>
+    </section>
   );
 };
 

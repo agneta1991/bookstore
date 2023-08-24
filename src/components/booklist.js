@@ -7,29 +7,26 @@ function BookList({ book }) {
   const dispatch = useDispatch();
 
   const handleRemoveBook = async () => {
-    await dispatch(removeBookAsync({ appId, item_id: book.item_id }));
+    await dispatch(removeBookAsync({ appId, itemId: book.item_id }));
   };
 
   return (
-    <div className="bookListDiv">
-      <h1>BOOKS</h1>
-      <li>
-        <p>
-          Title:
-          {book.title}
-        </p>
-        <p>
-          Author:
-          {book.author}
-        </p>
-        <p>
-          Category:
-          {book.category}
-        </p>
-        <button type="button" onClick={handleRemoveBook}>
-          Remove Book
-        </button>
-      </li>
+    <div className="bookInfo">
+      <h2>
+        Title:
+        {book.title}
+      </h2>
+      <h3>
+        Author:
+        {book.author}
+      </h3>
+      <h4>
+        Category:
+        {book.category}
+      </h4>
+      <button className="delete" type="button" onClick={handleRemoveBook}>
+        Delete Book
+      </button>
     </div>
   );
 }
