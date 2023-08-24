@@ -37,8 +37,7 @@ body {
   margin: 2rem;
 }
 
-.bookListDiv>ul {
-
+.bookListDiv > ul {
   padding: 0;
 }
 
@@ -94,7 +93,6 @@ form {
   margin: 2.313rem 6.25rem 0;
   padding: 2rem 9.188rem 1.625rem 1.688rem;
   width: 100%;
-
 }
 
 input {
