@@ -16,6 +16,7 @@ function BookForm() {
       category: 'Under the construction',
     };
     await dispatch(addBookAsync({ appId, book: newBook }));
+
     setTitle('');
     setAuthor('');
   };
@@ -23,6 +24,7 @@ function BookForm() {
   return (
     <form>
       <h2>Add New Book</h2>
+
       <input
         type="text"
         placeholder="Title"
@@ -41,5 +43,6 @@ function BookForm() {
     </form>
   );
 }
+
 
 export default BookForm;

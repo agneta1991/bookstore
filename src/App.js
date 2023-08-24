@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import Navigation from './components/navbar';
-import Home from './pages/books';
 import Categories from './pages/categories';
 import './App.css';
+import BooksPage from './pages/books';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <Navigation />
       <div>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<BooksPage />} />
           <Route path="/categories" element={<Categories />} />
         </Routes>
       </div>
