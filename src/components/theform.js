@@ -22,25 +22,31 @@ function BookForm() {
   };
 
   return (
-    <form>
-      <h2>Add New Book</h2>
-
-      <input
-        type="text"
-        placeholder="Title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Author"
-        value={author}
-        onChange={(e) => setAuthor(e.target.value)}
-      />
-      <button className="addBook" type="button" onClick={handleAddBook}>
-        Add Book
-      </button>
-    </form>
+    <>
+      <hr />
+      <form>
+        <h2>Add New Book</h2>
+        <div className="input-div">
+          <input
+            className="input-title"
+            type="text"
+            placeholder="Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+          <input
+            className="input-author"
+            type="text"
+            placeholder="Author"
+            value={author}
+            onChange={(e) => setAuthor(e.target.value)}
+          />
+          <button className="addBook" type="button" onClick={handleAddBook}>
+            ADD BOOK
+          </button>
+        </div>
+      </form>
+    </>
   );
 }
 

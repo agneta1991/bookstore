@@ -1,0 +1,74 @@
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 2.5rem 6.25rem 1.813rem 6.25rem;
+}
+
+form {
+  margin: 1.813rem 32.75rem 1.188rem 6.25rem;
+  border: 1px solid #fafafa;
+  box-sizing: border-box;
+  width: 83vw;
+}
+
+form > h2 {
+  margin: 0.2rem;
+  margin-bottom: 1.8rem;
+  width: 10.875rem;
+  height: 1.5rem;
+  font-family: Montserrat, sans-serif, Arial;
+  font-size: 1.25rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.18px;
+  color: #888;
+}
+
+.whole-page {
+  height: 100vh;
+}
+
+.input-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  gap: 2.125rem;
+}
+
+.input-title {
+  font-size: 1rem;
+  padding: 0.4rem 0.5rem 0.4rem 0.5rem;
+  flex: 3;
+  height: 2.813rem;
+  border-radius: 4px;
+  border: solid 1px #e8e8e8;
+  background-color: white;
+}
+
+.input-author {
+  font-size: 1rem;
+  padding: 0.4rem 0.5rem 0.4rem 0.5rem;
+  flex: 2;
+  height: 2.813rem;
+  border-radius: 4px;
+  border: solid 1px #e8e8e8;
+  background-color: white;
+}
+
+.addBook {
+  flex: 1;
+  height: 3.5rem;
+  padding: 0.4rem 0.5rem 0.4rem 0.5rem;
+  background-color: #0290ff;
+  font-family: 'RobotoSlab', sans-serif, Arial;
+  font-size: 0.813rem;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  border-radius: 3px;
+  border: none;
+}

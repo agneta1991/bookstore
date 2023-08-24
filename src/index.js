@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Home from './pages/books';
-import Categories from './pages/categories';
+import Categories from './pages/categoriesPage';
 import store from './redux/store';
 
 const router = createBrowserRouter([

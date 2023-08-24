@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { removeBookAsync, appId } from '../redux/books/booksSlice';
+import { CommentBtn, EditBtn } from './commentsRemoveEdit';
+import Completion from './completion';
+import ChapterDiv from './bookChapterStatus';
 
 function BookList({ book }) {
   const dispatch = useDispatch();
@@ -13,22 +16,22 @@ function BookList({ book }) {
   return (
     <div className="individualBookLiItem">
       <div>
-        <h2>
-          Title:
-          {book.title}
-        </h2>
-        <h3>
-          Author:
-          {book.author}
-        </h3>
-        <h4>
-          Category:
-          {book.category}
-        </h4>
+        <p className="category-p">{book.category}</p>
+        <p className="title-p">{book.title}</p>
+        <p className="author-p">{book.author}</p>
+        <div className="buttonsDiv">
+          <CommentBtn />
+          <div className="vertical-line" />
+          <button className="delete" type="button" onClick={handleRemoveBook}>
+            Delete
+          </button>
+          <div className="vertical-line" />
+          <EditBtn />
+        </div>
       </div>
-      <button className="delete" type="button" onClick={handleRemoveBook}>
-        Delete
-      </button>
+      <Completion />
+      <div className="vertical-line" />
+      <ChapterDiv />
     </div>
   );
 }
