@@ -13,7 +13,7 @@
 
 .circleCompletion {
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(48, 123, 190, 1) 0%, rgba(55, 156, 246, 1) 100%);
+  background: -webkit-linear-gradient(left top, blue 0%, #f90 100%);
   width: 5rem;
   height: 5rem;
   display: flex;
