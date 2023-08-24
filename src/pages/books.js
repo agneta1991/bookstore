@@ -6,30 +6,36 @@ import {
   addAndFetch,
   removeAndFetch,
   fetchBooks,
+  // fetchAppId,
 } from '../redux/books/booksSlice';
 
 const Home = () => {
   const dispatch = useDispatch();
+  // const appId = useSelector((state) => state.books.appId);
   const books = useSelector((state) => state.books.value);
-  const fetchedAppId = useSelector((state) => state.books.appId);
-  console.log(books, fetchedAppId);
 
   useEffect(() => {
-    if (fetchedAppId) {
-      dispatch(fetchBooks(fetchedAppId));
-    }
-  }, [dispatch, fetchedAppId]);
+    dispatch(fetchBooks());
+  }, [dispatch]);
+
+  // useEffect(() => {
+  //   if (appId) {
+  //     dispatch(fetchBooks(appId));
+  //   }
+  // }, [dispatch, appId]);
 
   const handleDelete = (id) => {
-    if (fetchedAppId) {
-      dispatch(removeAndFetch({ bookId: id, appId: fetchedAppId }));
-    }
+    // if (appId) {
+    //   dispatch(removeAndFetch({ bookId: id, appId }));
+    // }
+    console.log('delete action', id, removeAndFetch);
   };
 
   const handleSubmit = (newBook) => {
-    if (fetchedAppId) {
-      dispatch(addAndFetch({ newBook, appId: fetchedAppId }));
-    }
+    // if (appId) {
+    // dispatch(addAndFetch({ newBook, appId }));
+    console.log('add book action', addAndFetch, newBook);
+    // }
   };
 
   return (

@@ -1,30 +1,37 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const baseAppURL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/';
+// const baseAppURL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/';
 const baseBooksURL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/:app_id/books';
 
-export const fetchAppId = async () => {
+// export const fetchAppId = createAsyncThunk(
+//   'books/fetchAppId',
+//   async (_, thunkAPI) => {
+//     try {
+//       const response = await axios.post(baseAppURL);
+//       const appId = response.data;
+//       console.log('id is', appId);
+//       return appId;
+//     } catch (error) {
+//       console.log(error);
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   },
+// );
+
+const appId = 'kLivYWfk0nGVQW8K0TO2';
+
+export const fetchBooks = createAsyncThunk('books/fetchBooks', async (thunkAPI) => {
   try {
-    const response = await axios.post(baseAppURL);
-    const appId = response.data;
-    console.log('id is', appId);
-    return appId;
+    const response = await axios.get(baseBooksURL.replace(':app_id', appId));
+    console.log('the response status is:', response);
+    console.log('the response data is:', response.data);
+    return response.data;
   } catch (error) {
     console.log(error);
-    return null;
+    return thunkAPI.rejectWithValue(error.message);
   }
-};
-
-export const fetchBooks = createAsyncThunk(
-  'books/fetchBooks',
-  async (appId) => {
-    const response = await axios.get(baseBooksURL.replace(':app_id', appId));
-    console.log(response);
-    console.log(response.data);
-    return response.data;
-  },
-);
+});
 
 export const addAndFetch = createAsyncThunk(
   'books/addAndFetch',
@@ -48,15 +55,21 @@ export const removeAndFetch = createAsyncThunk(
   },
 );
 
+const initialState = {
+  books: [],
+  status: '',
+  error: null,
+};
+
 export const booksSlice = createSlice({
   name: 'books',
-  initialState: {
-    value: [],
-    status: 'idle',
-  },
+  initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
+      //   .addCase(fetchAppId.fulfilled, (state, action) => {
+      //     state.appId = action.payload;
+      //   })
       .addCase(fetchBooks.pending, (state) => {
         state.status = 'loading';
       })
