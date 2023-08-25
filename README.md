@@ -50,7 +50,7 @@
 
 <br>
 
-- [Click me to view deployed project!](coming soon!)
+- [Click me to view deployed project!](https://book-store-k53c.onrender.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
