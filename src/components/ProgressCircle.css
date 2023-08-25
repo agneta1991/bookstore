@@ -2,12 +2,10 @@
 .circleCompletion {
   width: 68px;
   height: 68px;
-  border-bottom: 10px solid #e8e8e8;
-  border-right: 10px solid #e8e8e8;
-  border-radius: 60%;
-  border-color: #e8e8e8 #379cf6 #379cf6 #e8e8e8;
-  border-style: solid;
-  border-width: 5px;
+  border-radius: 50%;
+  background:
+    radial-gradient(closest-side, white 79%, transparent 80% 100%),
+    conic-gradient(#0290ff, #e8e8e8);
 }
 
 .completionDiv {
